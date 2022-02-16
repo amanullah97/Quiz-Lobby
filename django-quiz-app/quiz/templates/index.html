@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    <p>Username: {{user.username}}</p>
+    <p>Name: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+{% endif %}
+
+
+{% if student is none %}
+    <form method="POST">
+        {% csrf_token %}
+
+
+        <div class="form-group">
+    <p>Please Select Course for Enrollment!</p>
+
+    {{form.course_rel}}
+
+
+            </div>
+  <button type="submit" class="btn btn-primary">Enroll</button>
+    </form>
+
+
+
+{% endif %}
+
+
+
+{% endblock  %}

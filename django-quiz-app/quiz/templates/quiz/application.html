@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1 class="text-center">Teacher Application Form</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{form.full_name}}
+<!--            <input type="text" class="form-control" placeholder="Enter Full-name" name="full_name">-->
+        </div>
+        <div class="form-group">
+            {{form.email}}
+<!--            <input type="email" class="form-control" placeholder="Enter Email" name="email">-->
+        </div>
+        <div class="form-group">
+            {{form.contact_no}}
+<!--            <input type="number" class="form-control" placeholder="Enter contact number" name="contact_no">-->
+        </div>
+        <div class="form-group">
+            {{form.course}}
+<!--            <input type="text" class="form-control" placeholder="Enter Course you want to teach!" name="course">-->
+        </div>
+        <div class="form-group">
+            <label> Upload your Cv here! </label>
+            {{form.cv}}
+<!--            <input type="file" class="form-control"  name="cv">-->
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Apply</button>
+
+        <p class="form-group">Back to <a href="{% url 'index' %}"> QuizLobby </a> </p>
+
+    </form>
+</div>
+
+{% endblock %}
